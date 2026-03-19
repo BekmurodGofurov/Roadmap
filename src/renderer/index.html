@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+<title>DevPath — 90 Days</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- START SCREEN -->
+<div id="screen-start" class="screen active">
+  <div class="start-wrap">
+    <div class="start-label">PERSONAL LEARNING PLATFORM</div>
+    <h1 class="start-title">Dev<span>Path</span></h1>
+    <p class="start-sub">90-day Full Stack Developer journey.<br>Every day — a clear goal. Every week — results.</p>
+    <div class="start-field">
+      <label>YOUR NAME</label>
+      <input id="inp-name" placeholder="Your name" maxlength="30" autocomplete="off">
+    </div>
+    <button class="start-btn" onclick="startApp()">Start →</button>
+    <div class="start-counts">
+      <div><span style="color:var(--m1)">90</span><small>DAYS</small></div>
+      <div><span style="color:var(--m2)">12</span><small>WEEKS</small></div>
+      <div><span style="color:var(--m3)">3</span><small>MONTHS</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- APP SCREEN -->
+<div id="screen-app" class="screen">
+  <div class="topbar">
+    <span class="tbar-logo">DevPath</span>
+    <span class="tbar-name" id="tbar-name"></span>
+    <span class="tbar-day" id="tbar-day"></span>
+    <div class="tbar-right">
+      <span class="streak-badge" id="tbar-streak">🔥 0</span>
+      <span class="tbar-left" id="tbar-left"></span>
+    </div>
+  </div>
+
+  <div class="app-body">
+
+    <!-- ROADMAP -->
+    <section class="section" id="sec-roadmap">
+      <div class="sec-head">
+        <div class="sec-title">📍 Roadmap</div>
+        <div class="track-filter">
+          <button class="track-btn active" data-track="main" onclick="setTrack('main')">⚡ JS / React / Node</button>
+          <button class="track-btn" data-track="sql" onclick="setTrack('sql')">🗄️ SQL / DB</button>
+          <button class="track-btn" data-track="linux" onclick="setTrack('linux')">🐧 Linux / DevOps</button>
+        </div>
+      </div>
+      <div class="months-row" id="months-row"></div>
+      <div class="weeks-row" id="weeks-row" style="display:none"></div>
+      <div class="days-grid" id="days-grid" style="display:none"></div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="section" id="sec-dash">
+      <div class="sec-title">📊 Dashboard</div>
+
+      <div class="prog-card">
+        <div class="prog-top">
+          <span class="prog-label">90-Day Journey</span>
+          <span class="prog-num" id="prog-num">0 / 90</span>
+        </div>
+        <div class="prog-track">
+          <div class="prog-fill" id="prog-fill"></div>
+          <div class="prog-marker" id="prog-marker"></div>
+        </div>
+        <div class="prog-months">
+          <span style="color:var(--m1)">Month 1: JS+React</span>
+          <span style="color:var(--m2)">Month 2: Node+SQL+Linux</span>
+          <span style="color:var(--m3)">Month 3: DevOps+FullStack</span>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-val" id="s-done" style="color:var(--m3)">0</div>
+          <div class="stat-lbl">Completed</div>
+          <div class="stat-sub" id="s-done-sub"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="s-streak" style="color:var(--yellow)">0</div>
+          <div class="stat-lbl">Streak 🔥</div>
+          <div class="stat-sub">days in a row</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="s-today">—</div>
+          <div class="stat-lbl">Today</div>
+          <div class="stat-sub" id="s-today-sub"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="s-pace" style="color:var(--m1)">—</div>
+          <div class="stat-lbl">Pace</div>
+          <div class="stat-sub" id="s-pace-chip"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="s-hours" style="color:var(--m2)">0</div>
+          <div class="stat-lbl">Hours</div>
+          <div class="stat-sub">studied</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="s-left" style="color:var(--text2)">90</div>
+          <div class="stat-lbl">Remaining</div>
+          <div class="stat-sub">days</div>
+        </div>
+      </div>
+
+      <div class="heatmap-card">
+        <div class="heatmap-top">
+          <span class="heatmap-title">Activity — 90 Days</span>
+          <span class="heatmap-legend">
+            <span class="dot" style="background:var(--m3)"></span>done &nbsp;
+            <span class="dot" style="background:var(--red)"></span>missed &nbsp;
+            <span class="dot" style="background:var(--m1)"></span>today
+          </span>
+        </div>
+        <div class="heatmap-grid" id="heatmap"></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- DAY MODAL -->
+<div class="overlay" id="overlay" onclick="overlayClick(event)">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script src="../data/curriculum.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

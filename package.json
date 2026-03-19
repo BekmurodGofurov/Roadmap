@@ -1,0 +1,17 @@
+{
+  "name": "devpath-v2",
+  "version": "2.0.0",
+  "description": "90 kunlik Full Stack roadmap va dashboard",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w better-sqlite3"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-rebuild": "^3.2.9"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0"
+  }
+}
