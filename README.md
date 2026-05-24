@@ -1,6 +1,6 @@
-# DevPath — 90 Kunlik Full Stack Developer Yo'lxaritasi
+# DevPath — 90-Day Full Stack Developer Roadmap
 
-> Shaxsiy offline desktop ilova — har kuni nima o'rganishni aniq ko'rsatib beradi.
+> A personal offline desktop app that guides you through a structured 90-day journey to become a Full Stack Developer.
 
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?style=flat&logo=electron&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-better--sqlite3-003B57?style=flat&logo=sqlite&logoColor=white)
@@ -9,156 +9,150 @@
 
 ---
 
-## ⬇️ Yuklab Olish (macOS)
+## Download (macOS)
 
-> **Faqat Apple Silicon Mac uchun** (M1, M2, M3, M4 — 2020 yildan keyingi MacBook/iMac)
+> **Apple Silicon only** — M1, M2, M3, M4 (MacBook / iMac from 2020 onwards)
 
-| Fayl | Tavsif |
-|------|--------|
-| [**DevPath-2.0.0-arm64.dmg**](https://github.com/BekmurodGofurov/Roadmap/releases/download/v2.0.0/DevPath-2.0.0-arm64.dmg) | O'rnatuvchi (tavsiya etiladi) |
-| [DevPath-2.0.0-arm64-mac.zip](https://github.com/BekmurodGofurov/Roadmap/releases/download/v2.0.0/DevPath-2.0.0-arm64-mac.zip) | ZIP (to'g'ridan ishlatish) |
+| File | Description |
+|------|-------------|
+| [**DevPath-2.0.0-arm64.dmg**](https://github.com/BekmurodGofurov/Roadmap/releases/download/v2.0.0/DevPath-2.0.0-arm64.dmg) | Installer (recommended) |
+| [DevPath-2.0.0-arm64-mac.zip](https://github.com/BekmurodGofurov/Roadmap/releases/download/v2.0.0/DevPath-2.0.0-arm64-mac.zip) | ZIP archive |
 
-👉 Barcha versiyalar: [**Releases sahifasi**](https://github.com/BekmurodGofurov/Roadmap/releases)
+All releases: [**Releases page**](https://github.com/BekmurodGofurov/Roadmap/releases)
 
 ---
 
-## 🖥️ O'rnatish — Bosqichma-bosqich
+## Installation
 
-### 1. DMG faylini oching
+### 1. Open the DMG
 
-`.dmg` faylini yuklab olingach, uni ikki marta bosib oching.
+Double-click the downloaded `.dmg` file.
 
-### 2. Applications papkasiga suring
+### 2. Drag to Applications
 
-Ochilgan oynada **DevPath** ikonkasini **Applications** papkasiga sudrab olib boring:
+In the window that appears, drag **DevPath.app** into the **Applications** folder.
 
 ```
 [ DevPath.app ]  →→→  [ Applications ]
 ```
 
-### 3. Birinchi marta ochish
+### 3. First launch
 
-macOS imzolanmagan dasturlarni bloklaydi. Birinchi safar quyidagicha oching:
+macOS blocks apps from unidentified developers by default. To open it the first time:
 
-> **DevPath.app ustiga o'ng tugma bosing → "Open" → "Open"**
+> **Right-click DevPath.app → "Open" → "Open"**
 
-Yoki:
+Or go to:
 
-> `System Settings → Privacy & Security → "Open Anyway"`
+> `System Settings → Privacy & Security → Open Anyway`
 
-Keyingi safar oddiy ikki marta bosib ocha olasiz.
+After that, you can open it normally with a double-click.
 
-### 4. Launchpad yoki Spotlight orqali ishlatish
+### 4. Launch from Spotlight or Launchpad
 
-O'rnatilgandan keyin:
-- **Launchpad**da DevPath ikonkasini toping
-- Yoki `Cmd + Space` → `DevPath` deb yozing → `Enter`
+- Press `Cmd + Space`, type `DevPath`, hit `Enter`
+- Or find it in **Launchpad**
 
 ---
 
-## 🚀 Nima Qiladi?
+## What is DevPath?
 
-DevPath — 90 kunlik strukturaviy o'rganish rejasini kuzatib boruvchi ilova. Har kuni **3 parallel yo'nalishda** aniq mavzu beriladi:
+DevPath tracks your 90-day learning plan across **3 parallel tracks** — every day has a clear goal, no guessing what to study next.
 
-| Yo'nalish | Mavzular |
-|-----------|----------|
+| Track | Topics |
+|-------|--------|
 | ⚡ **JS / React / Node** | JavaScript → React → Node.js → Express → TypeScript → Next.js |
-| 🗄️ **SQL / Ma'lumotlar Bazasi** | Asoslar → SQL → PostgreSQL → Optimallashtirish |
+| 🗄️ **SQL / Database** | Fundamentals → SQL → PostgreSQL → Optimization |
 | 🐧 **Linux / DevOps** | Terminal → SSH → Docker → CI/CD → Cloud |
 
 ---
 
-## ✨ Imkoniyatlar
+## Features
 
-- **Yo'lxarita ko'rinishi** — 3 oy → 12 hafta → 90 kun, hammasiga kirish mumkin
-- **Har kunlik kontent** — 3 yo'nalishda batafsil mavzular
-- **Bajarish belgisi** — vaqt va eslatmalar bilan kun yakunlash
-- **🔥 Streak** — ketma-ket kunlar soni dock ikonkasida ko'rinadi
-- **📊 Dashboard** — progress bar, sur'at ko'rsatkichi, o'rganilgan soatlar, faollik xaritasi
-- **💾 Lokal SQLite** — barcha ma'lumotlar qurilmangizda, internet shart emas
-- **🔒 To'liq offline** — hech qanday server yo'q
+- **Roadmap view** — 3 months → 12 weeks → 90 days, fully navigable
+- **3 track tabs** — switch between JS/React, SQL, and Linux content per day
+- **Preview any day** — click any future day to see what's coming
+- **Mark complete** — log time spent and notes for each day
+- **🔥 Streak tracking** — streak count shown on the dock icon
+- **📊 Dashboard** — progress bar, pace indicator, hours studied, activity heatmap
+- **Local SQLite** — all progress saved on your machine, no internet required
+- **Fully offline** — your data never leaves your device
 
 ---
 
-## 🛠️ Developer uchun — Manba Koddan Ishlatish
+## Running from Source
 
-### Talablar
+### Prerequisites
 
-- Node.js v18+ (v20 LTS tavsiya etiladi)
+- Node.js v18+ (v20 LTS recommended)
 - npm
 
-### O'rnatish
+### Setup
 
 ```bash
-# Reponi klonlash
 git clone https://github.com/BekmurodGofurov/Roadmap.git
 cd Roadmap
 
-# Paketlarni o'rnatish
 npm install
-
-# better-sqlite3 ni Electron uchun qayta kompilatsiya qilish
 npm run rebuild
-
-# Ilovani ishga tushirish
 npm start
 ```
 
-### Build qilish (macOS .dmg yaratish)
+> `npm run rebuild` is required because `better-sqlite3` is a native module that must be compiled for Electron's Node.js version.
+
+### Build macOS app
 
 ```bash
 npm run build
-# dist/ papkasida DevPath-2.0.0-arm64.dmg paydo bo'ladi
+# Creates dist/DevPath-2.0.0-arm64.dmg
 ```
 
 ---
 
-## 📁 Loyiha Tuzilmasi
+## Project Structure
 
 ```
 road/
 ├── src/
 │   ├── main/
-│   │   ├── main.js          # Electron asosiy jarayon + SQLite DB + Menu bar
-│   │   └── preload.js       # Xavfsiz IPC ko'prigi (contextBridge)
+│   │   ├── main.js          # Electron main process, SQLite, menu bar
+│   │   └── preload.js       # Secure IPC bridge (contextBridge)
 │   ├── renderer/
-│   │   ├── index.html       # Ilova interfeysi
-│   │   ├── app.js           # Barcha frontend logika
-│   │   └── style.css        # Qorong'u mavzu stillari
+│   │   ├── index.html       # App UI
+│   │   ├── app.js           # Frontend logic
+│   │   └── style.css        # Dark theme styles
 │   └── data/
-│       └── curriculum.js    # 90 kunlik kontent ma'lumotlari
+│       └── curriculum.js    # 90-day curriculum content
 ├── assets/
-│   └── icon.png             # Ilova ikonkasi (512×512)
-├── build/
-│   └── entitlements.mac.plist
+│   └── icon.png             # App icon (512×512)
 └── package.json
 ```
 
 ---
 
-## 💾 Ma'lumotlar Qayerda Saqlanadi?
+## Data Storage
 
-| Platforma | Yo'l |
-|-----------|------|
+| Platform | Path |
+|----------|------|
 | macOS | `~/Library/Application Support/devpath-v2/devpath.db` |
 
 ---
 
-## 📋 Texnologiyalar
+## Tech Stack
 
-| Qatlam | Texnologiya |
-|--------|-------------|
-| Desktop | Electron 33 |
-| Ma'lumotlar Bazasi | better-sqlite3 (SQLite) |
+| Layer | Technology |
+|-------|------------|
+| Desktop shell | Electron 33 |
+| Database | better-sqlite3 (SQLite) |
 | Frontend | Vanilla JS + HTML/CSS |
 | IPC | Electron contextBridge |
 
 ---
 
-## 📄 Litsenziya
+## License
 
-MIT — xohlaganingizcha ishlating.
+MIT — use it however you want.
 
 ---
 
-> *"Har bir expert har kuni keladigan yangi boshlovchi edi."*
+> *"Every expert was once a beginner who showed up every day."*
