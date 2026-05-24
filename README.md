@@ -1,194 +1,164 @@
-# DevPath — 90-Day Full Stack Developer Roadmap
+# DevPath — 90 Kunlik Full Stack Developer Yo'lxaritasi
 
-> A personal desktop app to track your journey from zero to Full Stack Developer in 90 days.
+> Shaxsiy offline desktop ilova — har kuni nima o'rganishni aniq ko'rsatib beradi.
 
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?style=flat&logo=electron&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-better--sqlite3-003B57?style=flat&logo=sqlite&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey?style=flat)
+![macOS](https://img.shields.io/badge/macOS-arm64-000000?style=flat&logo=apple&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 ---
 
-## What is DevPath?
+## ⬇️ Yuklab Olish (macOS)
 
-DevPath is a **personal offline desktop application** built with Electron that guides you through a structured 90-day learning plan to become a Full Stack Developer.
+> **Faqat Apple Silicon Mac uchun** (M1, M2, M3, M4 — 2020 yildan keyingi MacBook/iMac)
 
-Every day you get a clear lesson across **3 parallel tracks** — no guessing what to study next.
+| Fayl | Tavsif |
+|------|--------|
+| [**DevPath-2.0.0-arm64.dmg**](https://github.com/BekmurodGofurov/Roadmap/releases/download/v2.0.0/DevPath-2.0.0-arm64.dmg) | O'rnatuvchi (tavsiya etiladi) |
+| [DevPath-2.0.0-arm64-mac.zip](https://github.com/BekmurodGofurov/Roadmap/releases/download/v2.0.0/DevPath-2.0.0-arm64-mac.zip) | ZIP (to'g'ridan ishlatish) |
+
+👉 Barcha versiyalar: [**Releases sahifasi**](https://github.com/BekmurodGofurov/Roadmap/releases)
 
 ---
 
-## The 3 Tracks
+## 🖥️ O'rnatish — Bosqichma-bosqich
 
-Every single day has content for all three tracks simultaneously:
+### 1. DMG faylini oching
 
-| Track | Topics |
-|-------|--------|
+`.dmg` faylini yuklab olingach, uni ikki marta bosib oching.
+
+### 2. Applications papkasiga suring
+
+Ochilgan oynada **DevPath** ikonkasini **Applications** papkasiga sudrab olib boring:
+
+```
+[ DevPath.app ]  →→→  [ Applications ]
+```
+
+### 3. Birinchi marta ochish
+
+macOS imzolanmagan dasturlarni bloklaydi. Birinchi safar quyidagicha oching:
+
+> **DevPath.app ustiga o'ng tugma bosing → "Open" → "Open"**
+
+Yoki:
+
+> `System Settings → Privacy & Security → "Open Anyway"`
+
+Keyingi safar oddiy ikki marta bosib ocha olasiz.
+
+### 4. Launchpad yoki Spotlight orqali ishlatish
+
+O'rnatilgandan keyin:
+- **Launchpad**da DevPath ikonkasini toping
+- Yoki `Cmd + Space` → `DevPath` deb yozing → `Enter`
+
+---
+
+## 🚀 Nima Qiladi?
+
+DevPath — 90 kunlik strukturaviy o'rganish rejasini kuzatib boruvchi ilova. Har kuni **3 parallel yo'nalishda** aniq mavzu beriladi:
+
+| Yo'nalish | Mavzular |
+|-----------|----------|
 | ⚡ **JS / React / Node** | JavaScript → React → Node.js → Express → TypeScript → Next.js |
-| 🗄️ **SQL / Database** | DB Theory → SQL → PostgreSQL → Optimization → Advanced Queries |
-| 🐧 **Linux / DevOps** | OS Basics → Terminal → SSH → Nginx → Docker → CI/CD → Cloud |
+| 🗄️ **SQL / Ma'lumotlar Bazasi** | Asoslar → SQL → PostgreSQL → Optimallashtirish |
+| 🐧 **Linux / DevOps** | Terminal → SSH → Docker → CI/CD → Cloud |
 
 ---
 
-## Structure
+## ✨ Imkoniyatlar
+
+- **Yo'lxarita ko'rinishi** — 3 oy → 12 hafta → 90 kun, hammasiga kirish mumkin
+- **Har kunlik kontent** — 3 yo'nalishda batafsil mavzular
+- **Bajarish belgisi** — vaqt va eslatmalar bilan kun yakunlash
+- **🔥 Streak** — ketma-ket kunlar soni dock ikonkasida ko'rinadi
+- **📊 Dashboard** — progress bar, sur'at ko'rsatkichi, o'rganilgan soatlar, faollik xaritasi
+- **💾 Lokal SQLite** — barcha ma'lumotlar qurilmangizda, internet shart emas
+- **🔒 To'liq offline** — hech qanday server yo'q
+
+---
+
+## 🛠️ Developer uchun — Manba Koddan Ishlatish
+
+### Talablar
+
+- Node.js v18+ (v20 LTS tavsiya etiladi)
+- npm
+
+### O'rnatish
+
+```bash
+# Reponi klonlash
+git clone https://github.com/BekmurodGofurov/Roadmap.git
+cd Roadmap
+
+# Paketlarni o'rnatish
+npm install
+
+# better-sqlite3 ni Electron uchun qayta kompilatsiya qilish
+npm run rebuild
+
+# Ilovani ishga tushirish
+npm start
+```
+
+### Build qilish (macOS .dmg yaratish)
+
+```bash
+npm run build
+# dist/ papkasida DevPath-2.0.0-arm64.dmg paydo bo'ladi
+```
+
+---
+
+## 📁 Loyiha Tuzilmasi
 
 ```
-90 Days
-├── Month 1 (Days 1–28)   — JavaScript + React + DB Foundations
-│   ├── Week 1  — Closures, Promises, async/await · DB Theory · Linux OS
-│   ├── Week 2  — DOM, Events, Modules · SQL Queries · grep/find/pipes
-│   ├── Week 3  — React Intro, Hooks · Subqueries, Window Fns · SSH
-│   └── Week 4  — React Advanced, TypeScript · Indexes, Optimization · Nginx, Docker
-│
-├── Month 2 (Days 29–56)  — Node.js + Express + PostgreSQL + DevOps
-│   ├── Week 5  — Node.js, Express, JWT Auth · Advanced SQL · PM2, Deploy
-│   ├── Week 6  — WebSocket, Redis, Testing · Triggers, Partitioning · CI/CD, K8s
-│   ├── Week 7  — Full Stack Integration · SQL Expert Level · Server Hardening
-│   └── Week 8  — Capstone Project Build · Performance · Production Deploy
-│
-├── Month 3 (Days 57–84)  — Full Stack Mastery + Job Ready
-│   ├── Week 9  — TypeScript Generics · Advanced PostgreSQL · Terraform
-│   ├── Week 10 — tRPC, RSC, Monorepo · TimescaleDB, Kafka · AWS, Kubernetes
-│   ├── Week 11 — Algorithms · Mock Interviews · First Job Applications
-│   └── Week 12 — Final Polish · Portfolio Complete · Career Launch
-│
-└── Bonus (Days 85–90)    — Final Sprint + Day 90 Celebration 🏆
+road/
+├── src/
+│   ├── main/
+│   │   ├── main.js          # Electron asosiy jarayon + SQLite DB + Menu bar
+│   │   └── preload.js       # Xavfsiz IPC ko'prigi (contextBridge)
+│   ├── renderer/
+│   │   ├── index.html       # Ilova interfeysi
+│   │   ├── app.js           # Barcha frontend logika
+│   │   └── style.css        # Qorong'u mavzu stillari
+│   └── data/
+│       └── curriculum.js    # 90 kunlik kontent ma'lumotlari
+├── assets/
+│   └── icon.png             # Ilova ikonkasi (512×512)
+├── build/
+│   └── entitlements.mac.plist
+└── package.json
 ```
 
 ---
 
-## Features
+## 💾 Ma'lumotlar Qayerda Saqlanadi?
 
-- **📍 Roadmap View** — 3 months → 12 weeks → 90 days, all navigable
-- **3 Track Tabs** — switch between JS/React, SQL, Linux content per day
-- **👁 Preview any day** — click any future day to see what's coming
-- **✓ Mark Complete** — log time spent + notes for each day
-- **🔥 Streak tracking** — keep your daily streak alive
-- **📊 Dashboard** — progress bar, pace indicator, hours studied, activity heatmap
-- **💾 Local SQLite** — all progress saved locally, no internet needed
-- **🔒 Fully offline** — your data never leaves your machine
+| Platforma | Yo'l |
+|-----------|------|
+| macOS | `~/Library/Application Support/devpath-v2/devpath.db` |
 
 ---
 
-## Tech Stack
+## 📋 Texnologiyalar
 
-| Layer | Technology |
-|-------|-----------|
-| Desktop shell | Electron 33 |
-| Database | better-sqlite3 (SQLite) |
-| Frontend | Vanilla JS + HTML/CSS (no frameworks) |
+| Qatlam | Texnologiya |
+|--------|-------------|
+| Desktop | Electron 33 |
+| Ma'lumotlar Bazasi | better-sqlite3 (SQLite) |
+| Frontend | Vanilla JS + HTML/CSS |
 | IPC | Electron contextBridge |
 
 ---
 
-## Getting Started
+## 📄 Litsenziya
 
-### Prerequisites
-
-- Node.js v18+ (recommended: v20 LTS)
-- npm
-
-### Installation
-
-```bash
-# Clone the repo
-git clone https://github.com/yourusername/devpath.git
-cd devpath
-
-# Install dependencies
-npm install
-
-# Rebuild native modules for Electron
-npx electron-rebuild -f -w better-sqlite3
-
-# Run the app
-npm start
-```
-
-> **Note:** The `electron-rebuild` step is required because `better-sqlite3` is a native module that must be compiled specifically for Electron's Node.js version.
+MIT — xohlaganingizcha ishlating.
 
 ---
 
-## Project Structure
-
-```
-devpath/
-├── src/
-│   ├── main/
-│   │   ├── main.js          # Electron main process + SQLite DB
-│   │   └── preload.js       # Secure IPC bridge (contextBridge)
-│   ├── renderer/
-│   │   ├── index.html       # App UI structure
-│   │   ├── app.js           # All frontend logic
-│   │   └── style.css        # Dark theme styles
-│   └── data/
-│       └── curriculum.js    # All 90 days of content
-├── package.json
-└── README.md
-```
-
----
-
-## Data Storage
-
-Progress is saved to a local SQLite database at:
-
-| Platform | Path |
-|----------|------|
-| macOS | `~/Library/Application Support/devpath-v2/devpath.db` |
-| Windows | `%APPDATA%\devpath-v2\devpath.db` |
-| Linux | `~/.config/devpath-v2/devpath.db` |
-
-Two tables are used:
-
-```sql
--- Stores the user's name and start date
-CREATE TABLE user (
-  id         INTEGER PRIMARY KEY,
-  name       TEXT NOT NULL,
-  start_date TEXT NOT NULL
-);
-
--- Stores completion log for each day
-CREATE TABLE day_log (
-  id           INTEGER PRIMARY KEY AUTOINCREMENT,
-  day_num      INTEGER NOT NULL UNIQUE,
-  status       TEXT NOT NULL DEFAULT 'done',
-  minutes      INTEGER DEFAULT 0,
-  note         TEXT DEFAULT '',
-  completed_at TEXT DEFAULT (datetime('now'))
-);
-```
-
----
-
-## Screenshots
-
-> Add screenshots here after first run
-
-| Start Screen | Dashboard | Day Detail |
-|---|---|---|
-| *(screenshot)* | *(screenshot)* | *(screenshot)* |
-
----
-
-## Roadmap / Planned Features
-
-- [ ] Export progress report as PDF
-- [ ] Resource bookmark system
-- [ ] Daily reminder notifications
-- [ ] Progress sync via GitHub Gist (optional)
-- [ ] Packaged `.dmg` / `.exe` releases
-
----
-
-## License
-
-MIT — use it however you want.
-
----
-
-## About
-
-Built by a developer for developers. This app exists because structured, daily, multi-track learning beats random YouTube tutorials every time.
-
-> *"Every expert was once a beginner who showed up every day."*
+> *"Har bir expert har kuni keladigan yangi boshlovchi edi."*

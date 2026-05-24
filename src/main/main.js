@@ -1,14 +1,13 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu, shell } = require('electron')
 const path = require('path')
 const Database = require('better-sqlite3')
 
-// DB path — foydalanuvchi papkasida
 const dbPath = path.join(app.getPath('userData'), 'devpath.db')
 let db
+let mainWindow
 
 function initDB() {
   db = new Database(dbPath)
-
   db.exec(`
     CREATE TABLE IF NOT EXISTS user (
       id INTEGER PRIMARY KEY,
@@ -16,7 +15,6 @@ function initDB() {
       start_date TEXT NOT NULL,
       created_at TEXT DEFAULT (datetime('now'))
     );
-
     CREATE TABLE IF NOT EXISTS day_log (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       day_num INTEGER NOT NULL UNIQUE,
@@ -28,25 +26,82 @@ function initDB() {
   `)
 }
 
+function buildMenu() {
+  const template = [
+    {
+      label: 'DevPath',
+      submenu: [
+        { label: 'DevPath haqida', role: 'about' },
+        { type: 'separator' },
+        { label: 'Yashirish', role: 'hide' },
+        { label: 'Boshqalarni yashirish', role: 'hideOthers' },
+        { label: 'Hammasini ko\'rsatish', role: 'unhide' },
+        { type: 'separator' },
+        { label: 'Chiqish', role: 'quit', accelerator: 'Cmd+Q' }
+      ]
+    },
+    {
+      label: 'Tahrirlash',
+      submenu: [
+        { label: 'Bekor qilish', role: 'undo' },
+        { label: 'Qaytarish', role: 'redo' },
+        { type: 'separator' },
+        { label: 'Kesish', role: 'cut' },
+        { label: 'Nusxa olish', role: 'copy' },
+        { label: 'Joylashtirish', role: 'paste' },
+        { label: 'Hammasini tanlash', role: 'selectAll' }
+      ]
+    },
+    {
+      label: 'Ko\'rinish',
+      submenu: [
+        { label: 'Yangilash', role: 'reload', accelerator: 'Cmd+R' },
+        { label: 'Majburiy yangilash', role: 'forceReload', accelerator: 'Cmd+Shift+R' },
+        { type: 'separator' },
+        { label: 'Haqiqiy o\'lcham', role: 'resetZoom' },
+        { label: 'Kattalashtirish', role: 'zoomIn' },
+        { label: 'Kichraytirish', role: 'zoomOut' },
+        { type: 'separator' },
+        { label: 'To\'liq ekran', role: 'togglefullscreen' }
+      ]
+    },
+    {
+      label: 'Oyna',
+      submenu: [
+        { label: 'Kichraytirish', role: 'minimize', accelerator: 'Cmd+M' },
+        { label: 'Yopish', role: 'close', accelerator: 'Cmd+W' },
+        { type: 'separator' },
+        { label: 'Hammasini oldinga chiqarish', role: 'front' }
+      ]
+    }
+  ]
+
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template))
+}
+
 function createWindow() {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1400,
     height: 860,
     minWidth: 1000,
     minHeight: 650,
     titleBarStyle: 'hiddenInset',
     backgroundColor: '#08080f',
+    trafficLightPosition: { x: 16, y: 16 },
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false
     }
   })
-  win.loadFile(path.join(__dirname, '../renderer/index.html'))
+  mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
 }
+
+app.setName('DevPath')
 
 app.whenReady().then(() => {
   initDB()
+  buildMenu()
   createWindow()
 })
 
@@ -60,7 +115,6 @@ app.on('activate', () => {
 
 // ── IPC HANDLERS ──
 
-// User
 ipcMain.handle('get-user', () => {
   return db.prepare('SELECT * FROM user WHERE id = 1').get() || null
 })
@@ -75,7 +129,6 @@ ipcMain.handle('set-user', (_, name) => {
   return db.prepare('SELECT * FROM user WHERE id = 1').get()
 })
 
-// Day logs
 ipcMain.handle('get-all-logs', () => {
   return db.prepare('SELECT * FROM day_log').all()
 })
@@ -102,4 +155,16 @@ ipcMain.handle('get-stats', () => {
   const user = db.prepare('SELECT * FROM user WHERE id = 1').get()
   const logs = db.prepare('SELECT day_num, completed_at FROM day_log ORDER BY day_num').all()
   return { total, user, logs }
+})
+
+ipcMain.handle('update-dock-badge', (_, streak) => {
+  if (process.platform === 'darwin') {
+    app.dock.setBadge(streak > 0 ? String(streak) : '')
+  }
+  return { ok: true }
+})
+
+ipcMain.handle('open-external', (_, url) => {
+  shell.openExternal(url)
+  return { ok: true }
 })

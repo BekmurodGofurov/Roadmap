@@ -1,17 +1,51 @@
 {
   "name": "devpath-v2",
+  "productName": "DevPath",
   "version": "2.0.0",
   "description": "90 kunlik Full Stack roadmap va dashboard",
   "main": "src/main/main.js",
   "scripts": {
     "start": "electron .",
-    "rebuild": "electron-rebuild -f -w better-sqlite3"
+    "rebuild": "electron-rebuild -f -w better-sqlite3",
+    "build": "electron-builder --mac",
+    "build:dmg": "electron-builder --mac dmg",
+    "pack": "electron-builder --dir"
   },
   "devDependencies": {
     "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
     "electron-rebuild": "^3.2.9"
   },
   "dependencies": {
     "better-sqlite3": "^11.5.0"
+  },
+  "build": {
+    "appId": "com.bekmurod.devpath",
+    "productName": "DevPath",
+    "copyright": "Copyright © 2025 Bekmurod",
+    "files": [
+      "src/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.education",
+      "icon": "assets/icon.png",
+      "target": [
+        { "target": "dmg", "arch": ["arm64"] },
+        { "target": "zip", "arch": ["arm64"] }
+      ],
+      "minimumSystemVersion": "12.0",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "title": "DevPath Installer",
+      "backgroundColor": "#08080f",
+      "window": { "width": 660, "height": 400 },
+      "contents": [
+        { "x": 180, "y": 170, "type": "file" },
+        { "x": 480, "y": 170, "type": "link", "path": "/Applications" }
+      ]
+    }
   }
 }
